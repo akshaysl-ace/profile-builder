@@ -6,23 +6,27 @@ const styles = StyleSheet.create({
   background_blue: {
     backgroundColor: '#00bfff',
     width: '50%',
-    height:40,
+    height: 40,
     flexDirection: 'row',
-    color:'white'
+    color: 'white'
   },
   page: {
     flexDirection: 'column',
     backgroundColor: 'white',
   },
   footer_image: {
-    marginTop: 10,
-    height: 70,
+    marginTop: -17,
+    height: 60,
     position: "sticky"
   },
   footer_image_page2: {
-    marginTop: 45
-    ,
-    height: 70,
+    marginTop: 35,
+    height: 40,
+    position: "sticky"
+  },
+  footer_image_page3: {
+    marginTop: 85,
+    height: 40,
     position: "sticky"
   },
   page1: {
@@ -43,8 +47,17 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#003153',
     marginBottom: 20,
-    height: 50,
+    height: 40,
     color: "white"
+
+  },
+  blueLineBackground_first: {
+    width: '100%',
+    backgroundColor: '#003153',
+    marginBottom: 20,
+    height: 40,
+    color: "white",
+    marginTop: -10
 
   },
 
@@ -117,8 +130,7 @@ const styles = StyleSheet.create({
 
     width: 200,
     height: 40,
-    left: 90,
-    top: 750
+    left: 350
 
   },
   column1: {
@@ -141,6 +153,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 11
   },
+
   blueBackground_last: {
     backgroundColor: '#00bfff',
     padding: 5,
@@ -217,7 +230,7 @@ const styles = StyleSheet.create({
     borderRight: 1,
     borderBottom: 1,
     borderTop: 1,
-    color: "white",
+    color: "black",
     width: 441
   },
   expirienc_two_column_roles_contibutions: {
@@ -226,7 +239,7 @@ const styles = StyleSheet.create({
     borderRight: 1,
     borderBottom: 0,
     borderTop: 1,
-    color: "white",
+    color: "black",
     width: 441
   },
   expirienc_two_column_project_Description: {
@@ -282,7 +295,8 @@ const styles = StyleSheet.create({
   profileSummary: {
 
     marginBottom: 10,
-    fontSize: 11
+    fontSize: 11,
+    minHeight:130
 
   },
   Certification: {
@@ -295,8 +309,20 @@ const styles = StyleSheet.create({
 
   },
   Certification_container: {
-    height: 50
+    height: 69
 
+  }
+  ,
+  phone: {
+    fontSize: 11,
+    left: 200,
+    bottom: 20
+  },
+  photo: {
+    width: 40,
+    height: 40,
+    left: 470,
+    bottom: 70
   }
 });
 
@@ -334,9 +360,9 @@ const Preview = ({ data }) => {
             </View>
             <View >
 
-              <Text style={styles.content}>{"Sagar Patra"}</Text>
+              <Text style={styles.content}>{data?.name}</Text>
 
-              <Text style={styles.Role}>{"Product Engineer"}</Text>
+              <Text style={styles.Role}>{data?.role}</Text>
             </View>
 
           </Page>
@@ -350,27 +376,23 @@ const Preview = ({ data }) => {
               src="http://localhost:3000/header.png"
 
             />
+            <Text style={styles.phone}>{data?.phone}</Text>
+            <Image
 
+              src="http://localhost:3000/logo512.png"
+              style={styles.photo}
+
+            />
 
             <View style={styles.pageContainer}>
               <View style={styles.page_header}></View>
               <View >
-                <View style={styles.blueLineBackground}>
+                <View style={styles.blueLineBackground_first}>
 
 
                 </View>
                 <View style={styles.profileSummary}>
-                  <Text >{`• Having 3+ years of experience in developing full Stack Application using Spring Boot,
-JPA, Hibernate, JDBC, PostgreSQL and client-side technologies such as React, Redux,
-Bootstrap
-• Experience in using CICD tools GIT, Jenkins pipeline
-• Hands on experience in Spring Cloud and Microservices
-• Experience in testing frameworks such as Junit and Mockito
-• Strong knowledge of basic web technologies such as HTML, CSS, Bootstrap.
-• In-depth knowledge of JavaScript, React JS
-• Knowledge of database platforms such as PostgreSQL, Firebase, SQLite, and others
-• Knowledge of software development, basic testing, and agile development
-methodology`}</Text>
+                  <Text >{data?.profileSummary}</Text>
 
 
                 </View>
@@ -391,18 +413,19 @@ methodology`}</Text>
                   <View style={styles.column}>
 
                     <Text style={styles.borderRight2}></Text>
-                    <Text style={styles.borderRight}>Row 2</Text>
-                    <Text style={styles.borderRight}>Row </Text>
-                    <Text style={styles.borderRight}>Row 4</Text>
-                    <Text style={styles.borderRight}>Row 5</Text>
-                    <Text style={styles.borderRight_last}>Row 6</Text>
+                    <Text style={styles.borderRight}>{data?.domain}</Text>
+                    <Text style={styles.borderRight}>{data?.programmingLanguages}</Text>
+                    <Text style={styles.borderRight}>{data?.os}</Text>
+                    <Text style={styles.borderRight}>{data?.tools}</Text>
+                    <Text style={styles.borderRight_last}>{data?.hardware}</Text>
                   </View>
                 </View>
                 <View style={styles.blueLineBackground}>
                   <Text style={styles.Certification}>Certifications</Text>
                 </View>
                 <View style={styles.Certification_container} >
-                  <Text style={styles.Certification_content}>Certifications</Text>
+                  {data?.certifications?.map((certification) => <Text style={styles.Certification_content}>{certification}</Text>)}
+
 
                 </View>
               </View>
@@ -414,62 +437,63 @@ methodology`}</Text>
             />
           </Page>
 
-          <Page size="A4" style={styles.page}>
-            <Image
+          {data?.projectExp?.map((ele,index) => (
+            <Page size="A4" style={styles.page} key={index}>
+              <Image
 
-              src="http://localhost:3000/header.png"
+                src="http://localhost:3000/header.png"
 
-            />
-            <View style={[styles.container, styles.pageContainer]}>
-              <View style={styles.column1}>
+              />
+              <Text style={styles.phone}>{data?.phone}</Text>
+              <Image
 
-                <Text style={styles.blueBackgroundNoBorder}>Expirience</Text>
-                <Text style={styles.blueBackgroundNoBorder_project}>Project 1</Text>
-                <Text style={styles.blueBackground}>Project Name </Text>
-                <Text style={styles.blueBackground}>Start Date  </Text>
-                <Text style={styles.projectDesription}>Project Description </Text>
-                <Text style={styles.roles_contributions}>Role &Contribution </Text>
-                <Text style={styles.blueBackground_technology}>Technology &Tools </Text>
+                src="http://localhost:3000/logo512.png"
+                style={styles.photo}
+
+              />
+              <View style={[styles.container, styles.pageContainer]}>
+                <View style={styles.column1}>
+
+                  {index<0&&<Text style={styles.blueBackgroundNoBorder}>Expirience</Text>}
+                  <Text style={styles.blueBackgroundNoBorder_project}>{`Project${index+1}`}</Text>
+                  <Text style={styles.blueBackground}>Project Name </Text>
+                  <Text style={styles.blueBackground}>Start Date  </Text>
+                  <Text style={styles.projectDesription}>Project Description </Text>
+                  <Text style={styles.roles_contributions}>Role &Contribution </Text>
+                  <Text style={styles.blueBackground_technology}>Technology &Tools </Text>
+                </View>
+                <View style={styles.column}>
+
+                {index<0&&<Text style={styles.borderRight2}></Text>}
+                  <Text style={styles.borderRight2}></Text>
+                  <Text style={styles.borderRight}>{ele?.projectName}</Text>
+                  <Text style={styles.borderRight}>{ele?.startDate}</Text>
+                  <Text style={styles.expirienc_two_column_project_Description}> {ele?.projectDescription}
+                  </Text>
+                  <Text style={styles.expirienc_two_column_roles_contibutions}>{ele?.role}</Text>
+                  <Text style={styles.expirienc_two_column_last}>{ele?.technology}</Text>
+                </View>
+                <View style={styles.column}>
+
+                 { index<0&&<Text style={styles.borderRight2}></Text>}
+                  <Text style={styles.borderRight2}></Text>
+
+                  <View style={[styles.borderRight]}><View style={[styles.container]}><View style={styles.background_blue}><Text  >{`Team \nSize \n\n`}</Text></View><View><Text >{ele?.teamSize} </Text></View></View>   </View>
+                  <View style={[styles.borderRight]}><View style={[styles.container]}><View style={styles.background_blue}><Text  >{`End \nDate\n\n`}</Text></View><View><Text >{ele?.endDate}</Text></View></View>   </View>
+
+                  <Text style={styles.borderRight2}></Text>
+                  <Text style={styles.borderRight2}></Text>
+
+                </View>
               </View>
-              <View style={styles.column}>
+              <Image
 
-                <Text style={styles.borderRight2}></Text>
-                <Text style={styles.borderRight2}></Text>
-                <Text style={styles.borderRight}>Row 2</Text>
-                <Text style={styles.borderRight}>Row </Text>
-                <Text style={styles.expirienc_two_column_project_Description}>The project work focused more towards developing a metadata application portal
-                  that links existing on premise metadata resource information with native GCP
-                  metadata tools into one secure web-based application with enhanced search and
-                  visualization capabilities and without replicating or duplicating the information that
-                  already exists in other metadata tools. With these attributes data users can create
-                  use case requests which will be sent to google big query and creation of auth views
-                  with requested data and views. After these entitlements are created in Google Big
-                  Query, users are given access to these through Service Now Portal integration layer
-                  in the form of API requests after proper approval from data approvers
-                </Text>
-                <Text style={styles.expirienc_two_column_roles_contibutions}>Row 5</Text>
-                <Text style={styles.expirienc_two_column_last}>Row 6</Text>
-              </View>
-              <View style={styles.column}>
+                src="http://localhost:3000/footer.png"
+                style={index<0?styles.footer_image_page2:styles.footer_image_page3}
+              />
 
-                <Text style={styles.borderRight2}></Text>
-                <Text style={styles.borderRight2}></Text>
-
-                <View style={[styles.borderRight]}><View  style={[styles.container]}><View style={styles.background_blue}><Text  >{`Team \nSize \n\n`}</Text></View><View><Text >Row 5 </Text></View></View>   </View>
-                <View style={[styles.borderRight]}><View  style={[styles.container]}><View style={styles.background_blue}><Text  >{`End \nDate\n\n`}</Text></View><View><Text >Row 5 </Text></View></View>   </View>
-
-                <Text style={styles.borderRight2}></Text>
-                <Text style={styles.borderRight2}></Text>
-
-              </View>
-            </View>
-            <Image
-
-              src="http://localhost:3000/footer.png"
-              style={styles.footer_image_page2}
-            />
-
-          </Page>
+            </Page>))
+          }
         </Document>
       </PDFViewer>
     </div>

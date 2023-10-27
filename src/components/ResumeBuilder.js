@@ -20,37 +20,40 @@ export default function ResumeBuilder() {
         address: '123 Main St, City, Country',
         email: 'johndoe@email.com',
         phone: '123-456-7890',
-        summary: 'A highly motivated and detail-oriented software developer with a passion for creating web applications.',
-        education: [
+        profileSummary: 'A highly motivated and detail-oriented software developer with a passion for creating web applications.',
+        domain:"s,mc,m,",
+        programmingLanguages:"jwhjashjdhj",
+        os:"dsnc,m,sm,",
+        tools:"kjfskdjc,m",
+        hardware:"skcjkmkm,",
+        role:"Product Engineer",
+        certifications:[
+          "shdjfdhkjk",
+          "khkjjkjkjlk",
+          "kjkjlkjlklk"
+        ],
+
+        projectExp: [
           {
-            degree: 'Bachelor of Science in Computer Science',
-            institution: 'University XYZ',
+            projectName: 'Bachelor of Science in Computer Science',
+            projectDescription: 'University XYZ',
+            role:'Developer',
+            technology:'java',
+            teamSize:'3',
             startDate: '2017',
             endDate: '2021',
           },
           {
-            degree: 'Master of Science in Software Engineering',
-            institution: 'Graduate School of Engineering',
-            startDate: '2022',
-            endDate: '2024',
+            projectName: 'Bachelor of Science in Computer Science',
+            projectDescription: 'University XYZ',
+            role:'Developer',
+            technology:'java',
+            teamSize:'3',
+            startDate: '2017',
+            endDate: '2021',
           },
         ],
-        experience: [
-          {
-            title: 'Software Developer',
-            company: 'TechCorp Inc.',
-            startDate: '2021',
-            endDate: '2022',
-            description: 'Developed web applications using React and Node.js.',
-          },
-          {
-            title: 'Frontend Engineer',
-            company: 'WebTech Solutions',
-            startDate: '2022',
-            endDate: 'Present',
-            description: 'Collaborated with a team to create user-friendly interfaces.',
-          },
-        ],
+         
       };
     return (
         <Grid container spacing={2} margin="20px" alignContent="center">
