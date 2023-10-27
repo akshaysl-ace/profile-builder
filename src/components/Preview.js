@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     
     
   },
+  
+  
   pageContainer:{
 margin:40
   },
@@ -96,10 +98,12 @@ color:"white"
   },
   column1: {
     width: '25%',
+    fontSize:16
    
   },
   column: {
     width: '75%',
+    fontSize:16
     
      
   },
@@ -109,7 +113,17 @@ color:"white"
     padding: 5,
     height:50,
     border:"white",
-    color:"white"
+    color:"white",
+    fontSize:16
+  },
+  roles_contributions:{
+    backgroundColor: '#00bfff',
+    padding: 5,
+    height:70,
+    border:"white",
+    color:"white",
+    fontSize:11
+
   },
   blueBackgroundNoBorder:{
     backgroundColor: '#003153',
@@ -118,7 +132,17 @@ color:"white"
     width:'515',
     paddingTop:15,
     paddingLeft:5,
+    color:"white",
+    fontSize:16
+  },
+  projectDesription:{
+    height:300,
+    backgroundColor: '#00bfff',
+    padding: 5,
+    fontSize:16,
+    border:"white",
     color:"white"
+
   },
   blueBackgroundNoBorder2:{
     backgroundColor: '#00bfff',
@@ -126,6 +150,34 @@ color:"white"
     border:0,
     
   },
+ expirienc_two_column: {
+  height:50,
+  borderLeft:1,
+  borderRight:1,
+  borderBottom:0,
+  borderTop:1,
+  color:"white",
+  width:441
+  },
+  expirienc_two_column_roles_contibutions: {
+    height:70,
+    borderLeft:1,
+    borderRight:1,
+    borderBottom:0,
+    borderTop:1,
+    color:"white",
+    width:441
+    },
+  expirienc_two_column_project_Description: {
+    height:300,
+    borderLeft:1,
+    borderRight:1,
+    borderBottom:0,
+    borderTop:1,
+    color:"black",
+    width:441,
+    fontSize:16
+    },
   borderRight: {
     height:50,
     borderLeft:1,
@@ -151,6 +203,7 @@ color:"white"
   profileSummary:{
      
     marginBottom: 10,
+    fontSize:11
    
   },
 Certification:{
@@ -202,7 +255,9 @@ const Preview = ({ data }) => {
           </Page>
 
           <Page size="A4" style={styles.page}>
+            
             <View style={styles.pageContainer}>
+              <View style={styles.page_header}></View>
               <View >
             <View style={styles.blueLineBackground}>
               
@@ -253,16 +308,16 @@ methodology`}</Text>
       </View>
     </Page>
           <Page size="A4" style={styles.page}>
-          <View style={styles.container}>
+    <View style={[styles.container,styles.pageContainer]}>
       <View style={styles.column1}>
          
         <Text style={styles.blueBackgroundNoBorder}>Skills Summary</Text>
         <Text style={styles.blueBackgroundNoBorder}>Skills Summary</Text>
-        <Text style={styles.blueBackground}>Row 2</Text>
-        <Text style={styles.blueBackground}> Row 3</Text>
-        <Text style={styles.blueBackground}>Row 4</Text>
-        <Text style={styles.blueBackground}>Row 5</Text>
-        <Text style={styles.blueBackground}>Row 6</Text>
+        <Text style={styles.blueBackground}>Project Name </Text>
+        <Text style={styles.blueBackground}>Start Date  </Text>
+        <Text style={styles.projectDesription}>Project Description </Text>
+        <Text style={styles.roles_contributions}>Role &Contribution </Text>
+        <Text style={styles.blueBackground}>Technology &Tools </Text>
       </View>
       <View style={styles.column}>
          
@@ -270,9 +325,18 @@ methodology`}</Text>
       <Text  style={styles.borderRight2}></Text>
         <Text style={styles.borderRight}>Row 2</Text>
         <Text style={styles.borderRight}>Row </Text>
-        <Text style={styles.borderRight}>Row 4</Text>
-        <Text style={styles.borderRight}>Row 5</Text>
-        <Text style={styles.borderRight}>Row 6</Text>
+        <Text style={styles.expirienc_two_column_project_Description}>The project work focused more towards developing a metadata application portal
+that links existing on premise metadata resource information with native GCP
+metadata tools into one secure web-based application with enhanced search and
+visualization capabilities and without replicating or duplicating the information that
+already exists in other metadata tools. With these attributes data users can create
+use case requests which will be sent to google big query and creation of auth views
+with requested data and views. After these entitlements are created in Google Big
+Query, users are given access to these through Service Now Portal integration layer
+in the form of API requests after proper approval from data approvers
+</Text>
+        <Text style={styles.expirienc_two_column_roles_contibutions}>Row 5</Text>
+        <Text style={styles.expirienc_two_column}>Row 6</Text>
       </View>
       <View style={styles.column}>
          
@@ -286,6 +350,7 @@ methodology`}</Text>
       
       </View>
       </View>  
+      
           </Page>
         </Document>
       </PDFViewer>
