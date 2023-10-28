@@ -32,7 +32,7 @@ export default function ResumeBuilder() {
           "khkjjkjkjlk",
           "kjkjlkjlklk"
         ],
-        photoSource:"http://localhost:3000/logo.png",
+        photoSource:"http://localhost:3000/logo192.png",
         projectExp: [
           {
             projectName: 'Bachelor of Science in Computer Science',
