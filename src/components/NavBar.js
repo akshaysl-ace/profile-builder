@@ -1,7 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -11,14 +12,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
+import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
 
 function NavBar(props) {
+    console.log(props)
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
