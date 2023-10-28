@@ -9,19 +9,7 @@ import ForumAdd from './components/forum/ForumAdd'
 function App() {
   return (
     <>
-      <Container>
-        <NavBar />
-        {/* <ForumHome /> */}
-        {/* <ForumAdd /> */}
-        <ForumView
-          date='28 Oct, 2023'
-          title={'Title Title Title Title'}
-          author='John Doe'
-          tags={['React', 'Java']}
-          content={`This is the te content\n This is the te content\nThis is the te content\nThis is the te content\nThis is the te content\nThis is the te content\nThis is the te content\n`}
-        />
-        {/* <ResumeBuilder /> */}
-      </Container>
+      Add router
     </>
   )
 }
