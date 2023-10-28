@@ -454,7 +454,7 @@ const Preview = ({ data }) => {
               <View style={[styles.container, styles.pageContainer]}>
                 <View style={styles.column1}>
 
-                  {index < 0 && <Text style={styles.blueBackgroundNoBorder}>Expirience</Text>}
+                  {index === 0 && <Text style={styles.blueBackgroundNoBorder}>Expirience</Text>}
                   <Text style={styles.blueBackgroundNoBorder_project}>{`Project${index + 1}`}</Text>
                   <Text style={styles.blueBackground}>Project Name </Text>
                   <Text style={styles.blueBackground}>Start Date  </Text>
@@ -464,7 +464,7 @@ const Preview = ({ data }) => {
                 </View>
                 <View style={styles.column}>
 
-                  {index < 0 && <Text style={styles.borderRight2}></Text>}
+                  {index ===0 && <Text style={styles.borderRight2}></Text>}
                   <Text style={styles.borderRight2}></Text>
                   <Text style={styles.borderRight}>{ele?.projectName}</Text>
                   <Text style={styles.borderRight}>{ele?.startDate}</Text>
@@ -475,7 +475,7 @@ const Preview = ({ data }) => {
                 </View>
                 <View style={styles.column}>
 
-                  {index < 0 && <Text style={styles.borderRight2}></Text>}
+                  {index ===0 && <Text style={styles.borderRight2}></Text>}
                   <Text style={styles.borderRight2}></Text>
 
                   <View style={[styles.borderRight]}><View style={[styles.container]}><View style={styles.background_blue}><Text  >{`Team \nSize \n\n`}</Text></View><View><Text >{ele?.teamSize} </Text></View></View>   </View>
@@ -489,7 +489,7 @@ const Preview = ({ data }) => {
               <Image
 
                 src="http://localhost:3000/footer.png"
-                style={index < 0 ? styles.footer_image_page2 : styles.footer_image_page3}
+                style={index === 0 ? styles.footer_image_page2 : styles.footer_image_page3}
               />
 
             </Page>))
